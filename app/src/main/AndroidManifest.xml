@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.androidlocallogserver">
+
+    <permission
+        android:name="my.MyCustomPermission"
+        android:protectionLevel="signature" />
+
+    <application
+        android:name="com.example.androidlocallogserver.LocalLogApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AndroidAIDLServer">
+        <activity android:name="com.example.androidlocallogserver.ui.detail.AppLogActivity" />
+        <activity android:name="com.example.androidlocallogserver.ui.main.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name="com.example.androidlocallogserver.LocalLogService"
+            android:exported="true"
+            android:permission="my.MyCustomPermission">
+            <intent-filter>
+                <action android:name="service.name" />
+            </intent-filter>
+        </service>
+    </application>
+
+</manifest>
